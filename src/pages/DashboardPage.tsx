@@ -30,7 +30,7 @@ export function DashboardPage() {
             Dashboard
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Fase 4 — formulario + lista conectados.
+            Administra tus proyectos y sus tareas.
           </Typography>
         </Box>
         <Button startIcon={<LogoutIcon />} onClick={handleLogout}>
@@ -43,7 +43,12 @@ export function DashboardPage() {
       </Paper>
 
       <Paper sx={{ p: 3 }}>
-        <ProjectList projects={projects} loading={loading} error={error} />
+        <ProjectList
+          projects={projects}
+          onSelect={(project) => navigate(`/projects/${project.id}/tasks`)}
+          loading={loading}
+          error={error}
+        />
       </Paper>
     </Box>
   )

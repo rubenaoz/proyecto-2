@@ -15,6 +15,28 @@ export interface NewProject {
   description?: string
 }
 
+export interface Task {
+  id: number
+  title: string
+  description?: string
+  projectId: number
+  priority: TaskPriority
+  assigneeId: number | null
+  dueDate: string
+  status?: string
+  createdAt: string
+}
+
+export type TaskPriority = 'LOW' | 'MED' | 'HIGH'
+
+export interface NewTask {
+  title: string
+  description: string
+  priority: TaskPriority
+  assigneeId: number | null
+  dueDate: string
+}
+
 export const API_URL =
   import.meta.env.VITE_API_URL ||
   (import.meta.env.DEV ? '/api' : 'https://d3ujwk09smrk9z.cloudfront.net')

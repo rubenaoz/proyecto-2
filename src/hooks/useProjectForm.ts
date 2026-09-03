@@ -40,14 +40,5 @@ export function useProjectForm({ onSuccess }: UseProjectFormOptions = {}) {
     }
   }
 
-  return {
-    name,
-    setName,
-    description,
-    setDescription,
-    submitting,
-    error,
-    valid,
-    handleSubmit,
-  }
+  return { name, setName, description, setDescription, submitting, error, valid, handleSubmit }
 }

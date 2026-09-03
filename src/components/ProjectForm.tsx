@@ -15,38 +15,13 @@ interface ProjectFormProps {
   handleSubmit: (e: React.FormEvent) => void
 }
 
-export function ProjectForm({
-  name,
-  setName,
-  description,
-  setDescription,
-  submitting,
-  error,
-  valid,
-  handleSubmit,
-}: ProjectFormProps) {
+export function ProjectForm({ name, setName, description, setDescription, submitting, error, valid, handleSubmit }: ProjectFormProps) {
   return (
     <Stack spacing={2} component="form" onSubmit={handleSubmit}>
       <Typography variant="h6">Nuevo proyecto</Typography>
-
       {error && <Alert severity="error">{error}</Alert>}
-
-      <TextField
-        label="Nombre"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        required
-        fullWidth
-        helperText="Mínimo 3 caracteres"
-      />
-      <TextField
-        label="Descripción"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
-        fullWidth
-        multiline
-        rows={2}
-      />
+      <TextField label="Nombre" value={name} onChange={(e) => setName(e.target.value)} required fullWidth helperText="Mínimo 3 caracteres" />
+      <TextField label="Descripción" value={description} onChange={(e) => setDescription(e.target.value)} fullWidth multiline rows={2} />
       <Button type="submit" variant="contained" disabled={!valid || submitting}>
         {submitting ? 'Creando…' : 'Crear proyecto'}
       </Button>
